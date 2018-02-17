@@ -17,14 +17,16 @@ cron.schedule('0 0 0,12 * * *', () => {//second, minute, hour, day, month, weekd
   // setInterval(tweetIt, 1000*20);
 
   function tweetIt() {
-    var inames = ['circles', 'polka_dots'];
+    var inames = ['circles', 'polka_dots', 'photoimg'];
     var iname = inames[Math.floor(Math.random() * inames.length)];
-    // var cmd = 'processing-java --sketch=`pwd`/' + iname + ' --run';
-    var cmd = iname + '/' + iname;
+    // var iname = inames[2]; // for test
+    var cmd = 'p5/' + iname + '/' + iname; // on aws
+    // var cmd = 'processing-java --sketch=`pwd`/p5/' + iname + ' --run'; // on local
+
     exec(cmd, processing);
 
     function processing() {
-      var filename = iname + '/output.png';
+      var filename = 'p5/' + iname + '/output.png';
       var params = {
         encoding: 'base64'
       }

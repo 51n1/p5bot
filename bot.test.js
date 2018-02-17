@@ -13,16 +13,16 @@ tweetIt();
 // setInterval(tweetIt, 1000*20);
 
 function tweetIt() {
-  var inames = ['circles', 'polka_dots'];
-  var iname = inames[Math.floor(Math.random() * inames.length)];
-
-  var cmd = 'processing-java --sketch=`pwd`/' + iname + ' --run'; // on local
-  // var cmd = iname + '/' + iname; // on aws
+  var inames = ['circles', 'polka_dots', 'photoimg'];
+  // var iname = inames[Math.floor(Math.random() * inames.length)];
+  var iname = inames[2]; // for test
+  var cmd = 'p5/' + iname + '/' + iname; // on aws
+  // var cmd = 'processing-java --sketch=`pwd`/p5/' + iname + ' --run'; // on local
 
   exec(cmd, processing);
 
   function processing() {
-    var filename = iname + '/output.png';
+    var filename = 'p5/' + iname + '/output.png';
     var params = {
       encoding: 'base64'
     }
