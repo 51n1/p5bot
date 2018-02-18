@@ -9,10 +9,15 @@ PImage img;
 
 void setup() {
   size(600, 600);
-  background(random(200, 225));
-  noFill();
+  background(240);
+  //background(0, 180, 255);
+  
+  String[] lines = loadStrings("total.txt");
+  int total = int(lines[0]);
+  String imgFile = "image" + int(random(1, total+1)) + ".jpg";
+  //String imgFile = "image3.jpg";
 
-  img = loadImage("input_image_color.jpg");
+  img = loadImage(imgFile);
   translate((width - img.width)/2, (height - img.height)/2);
   //image(img, 0, 0);
   img.loadPixels();
@@ -28,17 +33,18 @@ void setup() {
 
       int threshold = 150;
       if (c < threshold) {
-        //stroke(0, 30);
         stroke(0, g, b, 30);
         strokeWeight(map(c, threshold, 0, 0, 9));
+        noFill();
         point(x + random(-5, 5), y + random(-5, 5));
-        //strokeWeight(0.1);
-        //stroke(0, 150);
         //ellipse(x, y, map(c, threshold, 0, 0, 5), map(c, threshold, 0, 0, 5));
         //line(x, y, x +map(c, threshold, 0, 0, 9), y + random(-3,3));
+        line(x, y, x + abs(sin(x) * 10) + random(0, c)/3, y);
       }
     }
   }
+  strokeWeight(5);
+  rect(0, 0, img.width, img.height);
   save("output.png");
   exit();
 }
