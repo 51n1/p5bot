@@ -6,18 +6,19 @@ void setup() {
 void setupCircles() {
   color[][] colors; // fg, bg
   colors = new color[6][2];
-  colors[0][0] = color(255);
-  colors[0][1] = color(0);
-  colors[1][0] = color(255, 70, 10);
-  colors[1][1] = color(255);
-  colors[2][0] = color(0);
-  colors[2][1] = color(255, 210, 0);
-  colors[3][0] = color(255);
-  colors[3][1] = color(240, 5, 50);
-  colors[4][0] = color(255, 255, 0);
-  colors[4][1] = color(0, 180, 255);
-  colors[5][0] = color(25, 255, 100);
-  colors[5][1] = color(0, 225, 255);
+  colorMode(HSB, 360, 100, 100);
+  colors[0][0] = color(200, 50, 100);
+  colors[0][1] = color(200, 100, 100);
+  colors[1][0] = color(60, 50, 100);
+  colors[1][1] = color(200, 100, 100);
+  colors[2][0] = color(0, 50, 100);
+  colors[2][1] = color(200, 100, 100);
+  colors[3][0] = color(200, 50, 100);
+  colors[3][1] = color(200, 100, 100);
+  colors[4][0] = color(200, 10, 100);
+  colors[4][1] = color(200, 100, 100);
+  colors[5][0] = color(60, 20, 100);
+  colors[5][1] = color(200, 100, 100);
   
   int num = floor(random(6));
 
